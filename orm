@@ -1,0 +1,43 @@
+from django.db import models
+
+class Books(models.Model):
+    name=models.CharField(max_length=200)
+    author=models.CharField(max_length=120)
+    price=models.PositiveIntegerField()
+    publisher=models.CharField(max_length=200)
+    qty=models.PositiveIntegerField(default=1)
+
+orm query for creating an object
+***********************
+modelname.objects.create(field1=value,field2=value2,.....)
+Books.objects.create(name="randamoozham",author="mt",price=450,publisher="abc",qty=30)
+Books.objects.create(name="arachar",author="meera",price=500,publisher="bcd",qty=5)
+Books.objects.create(name="pathummayude aadu",author="Basheer",price=300,publisher="def",qty=6)
+Books.objects.create(name="Aadujeevitham",author="Banyamin",price=500,publisher="manorama",qty=8)
+Books.objects.create(name="Khasakinte ithihasam",author="ov vijayan",price=200,publisher="mathrubhumi",qty=2)
+Books.objects.create(name="Mayazhipuzhayude theernagalil",author="Mukundan",price=500,publisher="manorama",qty=6)
+Books.objects.create(name="oru deshathinte Khadha",author="Pottakadu",price=800,publisher="ghj",qty=4)
+Books.objects.create(name="Ente khadha",author="Madhavikutty",price=50,publisher="dc books",qty=2)
+Books.objects.create(name="Balyakalasakhi",author="Basheer",price=100,publisher="jk books",qty=3)
+Books.objects.create(name="nalukettu",author="M.t",price=300,publisher="mathrubhumi",qty=5)
+
+qs=Books.objects.filter(price__lt=500)
+ps=Books.objects.filter(qty__gt=5)
+data=Books.objects.get(id=3)
+#exclude
+data=Books.objects.all().exclude(price=300)
+data
+ rs=Books.objects.filter(price__lt=400, price__gt=100)
+ rs
+gh=Books.objects.filter(qty__lt=8,qty__gt=2)
+gh
+pub=Books.objects.filter(publisher='manorama')
+pub
+#sorting
+bks=Books.objects.order_by('-price')
+bks
+fg=Books.objects.filter(id=2).update('price'=800)
+fg
+to delete
+Books.objects.filter(id=4).delete()
+Books.objects.all()

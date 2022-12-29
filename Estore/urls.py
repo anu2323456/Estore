@@ -19,5 +19,21 @@ from api.views import*
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('products',ProductsView.as_view())
+    path('cube',CubeView.as_view()),
+    path('numcheck',Numcheck.as_view()),
+    path('fact',Fact.as_view()),
+    path('word',Wordcount.as_view()),
+    path('pali',Pali.as_view()),
+    path('arm',Armstrong.as_view()),
+    path('prime',Prime.as_view()),
+    path('products',Products.as_view()),
+    path('morning', Morning.as_view()),
+    path('add',Add.as_view()),
+    path('mul',MUL.as_view()),
+    path('sub',SUB.as_view()),
+    path('books',Productview.as_view()),
+    path('products/<int:id>',Productdetailsview.as_view()),
+    path('reviews',ReviewsView.as_view()),
+    path('reviews/<int:id>',ReviewDetails.as_view())
+
 ]
